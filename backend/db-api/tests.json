@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Query users",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "query", "sql": "SELECT id, name, role FROM users LIMIT 1"},
+      "expectedStatus": 200,
+      "expectedBody": {"data": []},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

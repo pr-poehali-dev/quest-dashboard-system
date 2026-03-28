@@ -79,8 +79,8 @@ export default function Layout({ children, currentPage, onNavigate }: LayoutProp
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
             </div>
             <div>
-              <div className="font-montserrat font-800 text-sm text-white tracking-wide">QUEST</div>
-              <div className="font-montserrat text-[10px] text-yellow-400 tracking-widest -mt-0.5">MASTER</div>
+              <div className="font-montserrat font-800 text-sm text-white tracking-wide">МАСТЕР</div>
+              <div className="font-montserrat text-[10px] text-yellow-400 tracking-widest -mt-0.5">ПУТЕЙ</div>
             </div>
           </div>
         </div>

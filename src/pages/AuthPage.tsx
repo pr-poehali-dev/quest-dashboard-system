@@ -19,12 +19,12 @@ export default function AuthPage({ onAuth }: AuthPageProps) {
   const [smsSent, setSmsSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     setError('');
     if (!email && !phone) { setError('Введите email или телефон'); return; }
     if (!password) { setError('Введите пароль'); return; }
     const id = email || phone;
-    const user = login(id, password);
+    const user = await login(id, password);
     if (user) {
       onAuth();
     } else {
@@ -42,14 +42,14 @@ export default function AuthPage({ onAuth }: AuthPageProps) {
     }, 1000);
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     setError('');
     if (!name) { setError('Введите имя'); return; }
     if (!email && !phone) { setError('Введите email или телефон'); return; }
     if (!password) { setError('Введите пароль'); return; }
     if (password !== confirmPassword) { setError('Пароли не совпадают'); return; }
     if (smsSent && smsCode !== '1234') { setError('Неверный код из SMS (демо: 1234)'); return; }
-    const user = register(name, email, phone, password);
+    const user = await register(name, email, phone, password);
     if (user) {
       onAuth();
     } else {
@@ -57,8 +57,8 @@ export default function AuthPage({ onAuth }: AuthPageProps) {
     }
   };
 
-  const handleOwnerLogin = () => {
-    const user = login('owner@questmaster.ru', 'owner123');
+  const handleOwnerLogin = async () => {
+    const user = await login('owner@masterpytey.ru', 'owner123');
     if (user) onAuth();
   };
 
@@ -89,7 +89,7 @@ export default function AuthPage({ onAuth }: AuthPageProps) {
             style={{ background: 'linear-gradient(135deg, hsl(263 70% 50%), hsl(213 90% 42%))' }}>
             <Icon name="Sparkles" size={30} className="text-white" />
           </div>
-          <h1 className="font-montserrat text-3xl font-black mystical-text">QUEST MASTER</h1>
+          <h1 className="font-montserrat text-3xl font-black mystical-text">МАСТЕР ПУТЕЙ</h1>
           <p className="text-muted-foreground text-sm mt-1">Платформа управления квестами</p>
         </div>
 
@@ -229,7 +229,7 @@ export default function AuthPage({ onAuth }: AuthPageProps) {
         </div>
 
         <p className="text-center text-xs text-muted-foreground mt-4">
-          Демо: owner@questmaster.ru / owner123
+          Демо: owner@masterpytey.ru / owner123
         </p>
       </div>
     </div>

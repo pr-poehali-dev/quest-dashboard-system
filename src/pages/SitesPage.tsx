@@ -35,10 +35,10 @@ export default function SitesPage() {
 
   const handleCopyIntegration = (token: string) => {
     const integrationData = `
-=== ДАННЫЕ ИНТЕГРАЦИИ QUEST MASTER ===
+=== ДАННЫЕ ИНТЕГРАЦИИ МАСТЕР ПУТЕЙ ===
 INTEGRATION_TOKEN: ${token}
-API_BASE_URL: https://questmaster.app
-PLATFORM: QuestMaster v1.0
+API_BASE_URL: https://functions.poehali.dev/2449e2d8-177c-4a8d-a469-0cbab180de83
+PLATFORM: Мастер путей v1.0
 
 Инструкция по интеграции:
 1. Скопируйте эти данные
